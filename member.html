@@ -66,7 +66,33 @@ a:hover{
 <div class="w3-container" id="Home">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Membership Registration</span></h5>
-    <p>FIXME membership form here </p>
+    <form>
+  	<p>Please input your information below to become a member!</p><br>
+  
+  	<label for="fname">First name: </label><br>
+  	<input type="text" id="fname" name="fname" pattern="[A-Za-z- ]{1, 50} required>
+  
+  	<label for="lname">Last name: </label><br>
+  	<input type="text" id="lname" name="lname" pattern="[A-Za-z- ]{1, 50} required>
+  
+ 	 <label for="age">Age: </label><br>
+ 	 <input type="number" id="age" name="age" min=1 max=122 required>
+  
+	  <label for="num">Phone Number: </label><br>
+ 	 <input type="number" id="num" name="num" min=10 max=11 required>
+  
+	  <label for="email">Email: </label><br>
+ 	 <input type="text" id="exhibName" name="exhibName" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+  
+ 	 <label for="address">Address: </label><br>
+ 	 <input type="text" id="address" name="address" pattern="[0-9A-Za-z- ]{1, 100} required>
+  
+ 	 <label for="vet">Veteran? </label><br>
+  	<input type="checkbox" id="vet" name="vet">
+  
+  	<label for="org">Organization? </label><br>
+  	<input type="text" id="org" name="org">
+    </form>
     
     
   </div>
