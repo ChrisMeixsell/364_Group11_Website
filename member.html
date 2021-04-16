@@ -67,7 +67,7 @@ a:hover{
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Membership Registration</span></h5>
 <form>
-  <p>Please input your information below to become a member!</p><br>
+	<center><p>Please input your information below to become a member!</center></p><br>
   
   <label for="fname">First name: </label>
   <input type="text" id="fname" name="fname" pattern="[A-Za-z- ]{1, 50} required><br>
@@ -85,13 +85,15 @@ a:hover{
   <input type="text" id="exhibName" name="exhibName" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
   
   <label for="address">Address: </label>
-  <input type="text" id="address" name="address" pattern="[0-9A-Za-z- ]{1, 100} required><br>
+  <input type="text" id="address" name="address" pattern="[0-9A-Za-z- ]{1, 100}" required><br>
   
   <label for="vet">Veteran? </label>
   <input type="checkbox" id="vet" name="vet"><br>
   
   <label for="org">Organization? </label>
   <input type="text" id="org" name="org"><br>
+					
+  <input type="submit" value="Submit">
 </form>
 
     
