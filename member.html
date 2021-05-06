@@ -69,31 +69,36 @@ a:hover{
 <form>
 	<center><p>Please input your information below to become a member!</center></p><br>
   
-  <label for="fname">First name: </label>
-  <input type="text" id="fname" name="fname" pattern="[A-Za-z- ]{1, 50}" required><br>
   
-  <label for="lname">Last name: </label>
-  <input type="text" id="lname" name="lname" pattern="[A-Za-z- ]{1, 50}" required><br>
+  <input class="w3-input w3-padding-16 w3-border" placeholder="First Name" type="text" id="fname" name="fname" pattern="[A-Za-z- ]{1, 50}" required><br>
   
-  <label for="age">Age: </label>
-  <input type="number" id="age" name="age" min=1 max=122 required><br>
   
-  <label for="num">Phone Number: </label>
-  <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Last Name" type="text" id="lname" name="lname" pattern="[A-Za-z- ]{1, 50}" required><br>
   
-  <label for="email">Email: </label>
-  <input type="text" id="exhibName" name="exhibName" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
   
-  <label for="address">Address: </label>
-  <input type="text" id="address" name="address" pattern="[0-9A-Za-z- ]{1, 100}" required><br>
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Age" type="number" id="age" name="age" min=1 max=122 required><br>
   
-  <label for="vet">Veteran? </label>
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Phone Number" type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+  
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Email" type="text" id="exhibName" name="exhibName" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+  
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Address" type="text" id="address" name="address" pattern="[0-9A-Za-z- ]{1, 100}" required><br>
+  
+ 
+  
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Organization" type="text" id="org" name="org"><br>
+  
+   <label for="vet">Veteran?   </label>
+  
   <input type="checkbox" id="vet" name="vet"><br>
-  
-  <label for="org">Organization? </label>
-  <input type="text" id="org" name="org"><br>
-					
-  <input type="submit" value="Submit">
+			
+			<center>	
+  <input class="w3-button w3-light-grey w3-padding-large" type="submit" value="Submit">
+  			</center>	
 </form>
 
     

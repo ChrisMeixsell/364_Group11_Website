@@ -69,21 +69,24 @@ a:hover{
 <form>
 	<center><p>Please input information about your organization below.</center></p><br>
   
-  <label for="orgname">Organization Name: </label>
-  <input type="text" id="orgname" name="orgname" pattern="[A-Za-z- ]{1, 100}" required><br>
   
-  <label for="type">Type of Organization?</label><br>
-  <label for="nonprof">Nonprofit</label>
+  
+  <label for="type">Type of Organization?</label><br><br>
+  <label for="nonprof">Nonprofit:</label>
   <input type="radio" id="nonprof" name="type" value="nonprof"><br>
-  <label for="business">Business</label>
+  <label for="business">Business: </label>
   <input type="radio" id="business" name="type" value="business"><br>
-  <label for="other">Other</label>
-  <input type="radio" id="other" name="type" value="other"><br>
+  <label for="other">Other:   &nbsp&nbsp&nbsp&nbsp </label>
+  <input type="radio" id="other" name="type" value="other"><br><br>
   
-  <label for="desc">Description: </label>
-  <input type="text" id="desc" name="desc" pattern="[0-9A-Za-z- ]{1, 400}" required><br>
-	
-  <input type="submit" value="Submit">
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Organization Name" type="text" id="orgname" name="orgname" pattern="[A-Za-z- ]{1, 100}" required><br>
+  
+  
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Description" type="text" id="desc" name="desc" pattern="[0-9A-Za-z- ]{1, 400}" required><br>
+	<center>
+  <input class="w3-button w3-light-grey w3-padding-large" type="submit" value="Submit">
+  </center>
 </form>
     
     
