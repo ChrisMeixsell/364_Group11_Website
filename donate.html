@@ -88,7 +88,14 @@ a:hover{
   <input class="w3-input w3-padding-16 w3-border" placeholder="Member ID" type="number" id="memID" name="memID" min=1 max=500 required><br>
   
    
-  <input class="w3-input w3-padding-16 w3-border" placeholder="Exhibit Name" type="text" id="exhibName" name="exhibName" pattern="[0-9A-Za-z- ]{1, 100}" required><br>
+  <input class="w3-input w3-padding-16 w3-border" placeholder="Exhibit Name" type="text" id="exhibName" name="exhibName" required><br>
+  <label for="exhibName">Which exhibit are you donating towards?</label><br><br>
+  <label for="p38">P38: </label>
+  <input type="radio" id="p38" name="exhibName" value="p38"><br>
+  <label for="b25">B25: </label>
+  <input type="radio" id="b25" name="exhibName" value="b25"><br>
+  <label for="f4u">F4U: </label>
+  <input type="radio" id="f4u" name="exhibName" value="f4u"><br><br>
   
   
   <input class="w3-input w3-padding-16 w3-border" placeholder="Donation Amount" type="number" id="donation" name="donation" min=1 max=999999999 required><br>
