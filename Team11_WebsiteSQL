@@ -51,7 +51,7 @@ INSERT INTO ExampleWithForeignKey (exampleId, value) VALUES
 
 CREATE TABLE Organization (
 	OrgName VARCHAR(255) PRIMARY KEY,
-	Type VARCHAR(255) NOT NULL, 
+	OrgType VARCHAR(255) NOT NULL, 
 	Description VARCHAR(255) NOT NULL, 
 	Nonprofit BIT NOT NULL,
 	TotalOrgDonation FLOAT NOT NULL
@@ -60,8 +60,8 @@ CREATE TABLE Organization (
 INSERT INTO Organization (OrgName, Type, Description, Nonprofit, TotalOrgDonation)
 VALUES (‘Coffman Foundation’, ‘Research’, ‘Foundation to better the research and museum communities’, 0, 10000.00);
 
-INSERT INTO Organization (OrgName, Type, Description, Nonprofit, TotalOrgDonation)
-VALUES (‘Herrington Home’, ‘Foster Shelter’, ‘Shelter to help homeless kids find homes’, 0, 10001.00);
+INSERT INTO Organization (OrgName, OrgType, Description, TotalOrgDonation)
+VALUES (‘Herrington Home’, ‘nonprofit’, ‘Shelter to help homeless kids find homes’, 10001.00);
 
 
 
