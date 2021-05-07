@@ -16,7 +16,7 @@ $memID = mysqli_real_escape_string($link, $_REQUEST['memID']);
 $exhibName = mysqli_real_escape_string($link, $_REQUEST['exhibName']);
 $donation = mysqli_real_escape_string($link, $_REQUEST['donation']);
 
-$sql = "INSERT INTO donation (firstname, lastname, email)
+$sql = "INSERT INTO donation (memID, exhibName, donation)
         VALUES ('$memID', '$exhibName', '$donation')";
 
 if ($conn->query($sql) === TRUE) {
