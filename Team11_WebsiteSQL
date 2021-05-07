@@ -69,11 +69,11 @@ CREATE TABLE Donor (
 	MemId INT PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL, 
 	LastName VARCHAR(255) NOT NULL,
-	Age VARCHAR(255) NOT NULL CHECK (Age > 0),
+	Age INTEGER NOT NULL CHECK (Age > 0),
 	Veteran BIT NOT NULL,
 	TotalDonations FLOAT NOT NULL CHECK (TotalDonations > 0),
 	OrgName VARCHAR(255) NOT NULL,
-	FOREIGN KEY (OrgName) REFERENCES Organization.OrgName
+	FOREIGN KEY (OrgName) REFERENCES Organization(OrgName)
 );
 
 INSERT INTO Donor (MemId, FirstName, LastName, Age, Veteran, TotalDonations, OrgName)
@@ -93,8 +93,8 @@ CREATE TABLE Donation (
 	MemId INT PRIMARY KEY,
 	ExhibitName VARCHAR(255) NOT NULL,
 	Amount FLOAT NOT NULL CHECK (Amount > 0),
-	FOREIGN KEY (MemId) REFERENCES Donor.MemId,
-	FOREIGN KEY (ExhibitName) REFERENCES Exhibit.ExhibitName
+	FOREIGN KEY (MemId) REFERENCES Donor(MemId),
+	FOREIGN KEY (ExhibitName) REFERENCES Exhibit(ExhibitName)
 );
 
 INSERT INTO Donation (MemID, ExhibitName, Amount)
@@ -111,7 +111,7 @@ CREATE TABLE Contact_Information (
 	Phone INT NOT NULL CHECK Phone EQUALS 10,
 	Email VARCHAR(255),
 	Address VARCHAR(255) NOT NULL,
-	FOREIGN KEY (MemId) REFERENCES Donor.MemId
+	FOREIGN KEY (MemId) REFERENCES Donor(MemId)
 );
 
 INSERT INTO Contact_Information (MemId, FirstName, LastName, Phone, Email, Address)
@@ -141,8 +141,8 @@ VALUES (‘Collection of Planes Destroyed By Holden Caraway’, ‘Wreckage of P
 
 CREATE TABLE Member (
 	OrgName VARCHAR(255) PRIMARY KEY,
-	MemId INT PRIMARY KEY,
-	FOREIGN KEY (MemId) REFERENCES Donor.MemId
+	MemId INT ,
+	FOREIGN KEY (MemId) REFERENCES Donor(MemId)
 );
 
 INSERT INTO Member (OrgName, MemID)
@@ -154,8 +154,8 @@ VALUES (‘Herrington Home’, 22022);
 
 CREATE TABLE Recipient (
 	ExhibitName VARCHAR(255) PRIMARY KEY,
-	MemId INT PRIMARY KEY,
-	FOREIGN KEY (MemId) REFERENCES Donor.MemId
+	MemId INT ,
+	FOREIGN KEY (MemId) REFERENCES Donor(MemId)
 );
 
 INSERT INTO Recipient (ExhibitName, MemId)
