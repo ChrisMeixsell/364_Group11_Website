@@ -14,10 +14,13 @@ if ($conn->connect_error) {
 
 $orgType = mysqli_real_escape_string($link, $_REQUEST['orgType']);
 $orgname = mysqli_real_escape_string($link, $_REQUEST['orgname']);
-$desc = mysqli_real_escape_string($link, $_REQUEST['desc']);
+$description = mysqli_real_escape_string($link, $_REQUEST['description']);
 
-$sql = "INSERT INTO member (orgType, orgname, desc)
-        VALUES ('$orgType', '$orgname', '$desc')";
+$sql = "INSERT INTO organization (orgType, orgname, description, totalorgdonations)
+        VALUES ('$orgType', '$orgname', '$desc', 0)
+        UPDATE organization
+        SET totalorgdonations = SELECT SUM(
+        WHERE orgname = $orgname;";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
