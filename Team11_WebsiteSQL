@@ -77,11 +77,10 @@ CREATE TABLE Donor (
 );
 
 INSERT INTO Donor (MemId, FirstName, LastName, Age, Veteran, TotalDonations, OrgName)
-VALUES (68421, ‘Joel’, ‘Coffman’, 37, 1, 10000.00, ‘Coffman Foundation’);
+VALUES (68421, 'Joel', 'Coffman', 37, CAST('1' as boolean), 10000.00, 'Coffman Foundation');
 
 INSERT INTO Donor (MemId, FirstName, LastName, Age, Veteran, TotalDonations, OrgName)
-VALUES (22022, ‘Michael’, ‘Herrington’, 21, 0, 10001.00, ‘Herrington Home’);
-
+VALUES (22022, 'Michael', 'Herrington', 21, cast('0' as boolean), 10001.00, 'Herrington Home');
 
 
 
@@ -98,27 +97,27 @@ CREATE TABLE Donation (
 );
 
 INSERT INTO Donation (MemID, ExhibitName, Amount)
-VALUES (68421, ‘Outstanding Meixsell Planes’,10000.00);
+VALUES (68421, 'P38’,10000.00);
 
 INSERT INTO Donation (MemID, ExhibitName, Amount)
-VALUES (22022, ‘Collection of Planes Destroyed By Holden Caraway’,10001.00);
+VALUES (22022, ‘B25’,10001.00);
 
 
 CREATE TABLE Contact_Information (
 	MemId INT PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
 	LastName VARCHAR(255) NOT NULL,
-	Phone VARCHAR(255) NOT NULL CHECK (Phone  LIKE '[0-9][0-9][0-9] [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]'),
+	Phone VARCHAR(255) NOT NULL CHECK (Phone  LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
 	Email VARCHAR(255),
 	Address VARCHAR(255) NOT NULL,
 	FOREIGN KEY (MemId) REFERENCES Donor(MemId)
 );
 
 INSERT INTO Contact_Information (MemId, FirstName, LastName, Phone, Email, Address)
-VALUES (68421, ‘Joel’, ‘Coffman’, 7193337664, ‘joel.coffman@usafa.edu’, ‘1234 Coff Drive’);
+VALUES (68421, ‘Joel’, ‘Coffman’, '7193337664', ‘joel.coffman@usafa.edu’, ‘1234 Coff Drive’);
 
 INSERT INTO Contact_Information (MemId, FirstName, LastName, Phone, Email, Address)
-VALUES (22022, ‘Michael’, ‘Herrington’, 6789209641, ‘c22michael.herrington@afacademy.af.edu’, ‘2360 Vandenberg Dr’);
+VALUES (22022, ‘Michael’, ‘Herrington’, '6789209641', ‘c22michael.herrington@afacademy.af.edu’, ‘2360 Vandenberg Dr’);
 
 
 
@@ -131,13 +130,14 @@ TotalExhibitDonation FLOAT NOT NULL CHECK (TotalExhibitDonation > 0)
 
 
 
+INSERT INTO Exhibit (ExhibitName, ExhibitDesc, TotalExhibitDonation)
+VALUES('P38', 'P-38 Lightining',  10000.00);
 
-INSERT INTO Exhibit (ExhibitName, ExhibitDesc, ExhibitOrigin, TotalExhibitDonation)
-VALUES(‘Outstanding Meixsell Planes’, ‘Outstanding Planes flown by Chris Meixsell’, ‘Memphis, TN’, 10000.00);
+INSERT INTO Exhibit (ExhibitName, ExhibitDesc, TotalExhibitDonation)
+VALUES (‘F4U’, 'F4U Corsair', 10001.00);
 
-INSERT INTO Exhibit (ExhibitName, ExhibitDesc, ExhibitOrigin, TotalExhibitDonation)
-VALUES (‘Collection of Planes Destroyed By Holden Caraway’, ‘Wreckage of Planes flown by Holden Caraway’, ‘North Carolina’, 10001.00);
-
+INSERT INTO Exhibit (ExhibitName, ExhibitDesc, TotalExhibitDonation)
+VALUES (‘B25’, 'B25', 10001.00);
 
 CREATE TABLE Member (
 	OrgName VARCHAR(255) PRIMARY KEY,
@@ -159,7 +159,7 @@ CREATE TABLE Recipient (
 );
 
 INSERT INTO Recipient (ExhibitName, MemId)
-VALUES (‘Outstanding Meixsell Planes’, 68421);
+VALUES ('P38', 68421);
 
 INSERT INTO Recipient (ExhibitName, MemId)
-VALUES (‘Collection of Planes Destroyed By Holden Caraway’, 22022);
+VALUES ('B25', 22022);
