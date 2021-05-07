@@ -18,9 +18,6 @@ $description = mysqli_real_escape_string($link, $_REQUEST['description']);
 
 $sql = "INSERT INTO organization (orgType, orgname, description, totalorgdonations)
         VALUES ('$orgType', '$orgname', '$desc', 0);"
- $sql =       "UPDATE organization
-        SET totalorgdonations = totalorgdonation + SELECT SUM(
-        WHERE orgname = $orgname;";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
