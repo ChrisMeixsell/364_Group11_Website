@@ -12,12 +12,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$type = mysqli_real_escape_string($link, $_REQUEST['type']);
+$orgType = mysqli_real_escape_string($link, $_REQUEST['orgType']);
 $orgname = mysqli_real_escape_string($link, $_REQUEST['orgname']);
 $desc = mysqli_real_escape_string($link, $_REQUEST['desc']);
 
-$sql = "INSERT INTO member (type, orgname, desc)
-        VALUES ('$type', '$orgname', '$desc')";
+$sql = "INSERT INTO member (orgType, orgname, desc)
+        VALUES ('$orgType', '$orgname', '$desc')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
