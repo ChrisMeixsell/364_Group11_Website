@@ -16,14 +16,38 @@ $memID = mysqli_real_escape_string($conn, $_REQUEST['memID']);
 $exhibName = mysqli_real_escape_string($conn, $_REQUEST['exhibName']);
 $donation = mysqli_real_escape_string($conn, $_REQUEST['donation']);
 
-$sql = "INSERT INTO Donation (MemID, ExhibitName, Amount)
-        VALUES ('$memID', '$exhibName', '$donation')";
+$stmt = $conn->prepare("INSERT INTO Donation (MemID, ExhibitName, Amount)
+        VALUES (?, ?, ?)");
+$stmt->bind_param("isi",$memID,$exhibName,$donation); 
+$stmt->execute();
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+$sql = "SELECT SUM(Amount) as Total, FirstName, LastName
+	FROM Donation 
+	INNER JOIN Donor On Donation.MemId = Donor.MemId
+	Where Donor.MemId = '$memID'";
+$result = mysqli_query($conn,$sql);
+$row = $result->fetch_assoc();
 
+  echo $row["FirstName"] . " " . $row["LastName"] . " has donated ". $row["Total"] . " in total";
+  echo "<br>";
+
+$sql = "SELECT SUM(Amount) as OrgTotal, OrgName  
+	FROM Donation
+	INNER JOIN Donor On Donation.MemId = Donor.MemId
+	Where Donor.MemId = '$memID'";
+$result = mysqli_query($conn,$sql);
+$row = $result->fetch_assoc();
+	
+
+echo "Your organization, " . $row["OrgName"] . ", has donated " . $row["OrgTotal"] . " in total";
+echo "<br>";
+
+$sql = "SELECT SUM(Amount) as ExTotal FROM Donation WHERE ExhibitName = '$exhibName'";
+$result = mysqli_query($conn,$sql);
+$row = $result->fetch_assoc();
+
+echo $exhibName . " has received " . $row["ExTotal"] . " in donations";
+
+$stmt->close();
 $conn->close();
 ?>

@@ -1,5 +1,7 @@
 <?php
 //Code taken from W3 schools, editted by C2C Herrington and C2C Meixsell
+
+
 $servername = "localhost";
 $username = "student";
 $password = "CompSci364";
@@ -20,6 +22,8 @@ $vet = mysqli_real_escape_string($conn, $_REQUEST['vet']);
 
 $sql = "INSERT INTO Donor (MemID, FirstName, LastName, Age, TotalDonations, OrgName, Veteran)
         VALUES (0, '$fname', '$lname', '$age', 0, '$org', '$vet')";
+
+
 if ($conn->query($sql) === TRUE) {
 $sql = "UPDATE Donor 
 	SET MemID = FLOOR(RAND()*(99999-1+1))+1
@@ -41,4 +45,5 @@ $MemberID = $row['MemID'];
 }
 
 $conn->close();
+
 ?>
