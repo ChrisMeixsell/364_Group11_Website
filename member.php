@@ -20,12 +20,22 @@ $vet = mysqli_real_escape_string($conn, $_REQUEST['vet']);
 
 $sql = "INSERT INTO Donor (MemID, FirstName, LastName, Age, TotalDonations, OrgName, Veteran)
         VALUES (0, '$fname', '$lname', '$age', 0, '$org', '$vet')";
+if ($conn->query($sql) === TRUE) {
 $sql = "UPDATE Donor 
 	SET MemID = FLOOR(RAND()*(99999-1+1))+1
         WHERE MemID = 0";
+}
+
+
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+$sql = "SELECT MemID From Donor 
+	WHERE FirstName = '$fname' AND LastName = '$lname' AND OrgName = '$org' "; 
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$MemberID = $row['MemID'];
+	
+  echo "Your MemId is " . $MemberID . ".  You might want to write that down" ;
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
