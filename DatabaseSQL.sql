@@ -13,7 +13,6 @@ CREATE TABLE Organization (
 	OrgName VARCHAR(255) PRIMARY KEY,
 	OrgType VARCHAR(255) NOT NULL, 
 	Description VARCHAR(255) NOT NULL, 
-	
 	TotalOrgDonation FLOAT NOT NULL
 );
 
@@ -32,7 +31,7 @@ CREATE TABLE Donor (
 	Age INTEGER NOT NULL CHECK (Age > 0),
 	Veteran BIT NOT NULL,
 	TotalDonations FLOAT NOT NULL CHECK (TotalDonations > 0),
-	OrgName VARCHAR(255) NOT NULL,
+	OrgName VARCHAR(255),
 	FOREIGN KEY (OrgName) REFERENCES Organization(OrgName)
 );
 

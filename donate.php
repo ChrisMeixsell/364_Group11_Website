@@ -1,5 +1,5 @@
 <?php
-//Code taken from W3 schools, editted by C2C Herrington
+//Code taken from W3 schools, editted by C2C Herrington and C2C Meixsell
 $servername = "localhost";
 $username = "student";
 $password = "CompSci364";
